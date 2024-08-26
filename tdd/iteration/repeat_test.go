@@ -16,13 +16,14 @@ func BenchmarkRepeat(b *testing.B) {
 func ExampleRepeat() {
 	repeated := Repeat("a", 5)
 	fmt.Println(repeated)
-	// Output: "aaaaa"
+	// Output: aaaaa
 }
 
 func TestRepeat(t *testing.T) {
 	repeated := Repeat("a", 5)
 	expected := "aaaaa"
 
+	fmt.Println("repeated", repeated == expected)
 	if repeated != expected {
 		t.Errorf("expected %q but got %q", expected, repeated)
 	}
