@@ -12,6 +12,8 @@ const (
 	countdownStart = 3
 )
 
+func Croker() {}
+
 type Sleeper interface {
 	Sleep()
 }
