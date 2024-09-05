@@ -39,6 +39,7 @@ var cases = []struct {
 	{Arabic: 2014, Roman: "MMXIV"},
 	{Arabic: 1006, Roman: "MVI"},
 	{Arabic: 798, Roman: "DCCXCVIII"},
+	{Arabic: 0xFF, Roman: "CCLV"},
 }
 
 func TestRomanNumerals(t *testing.T) {
