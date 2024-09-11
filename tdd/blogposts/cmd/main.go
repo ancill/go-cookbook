@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	blogposts "github.com/ancill/go-cookbook/files"
+	"github.com/ancill/go-cookbook/blogposts"
 )
 
 func main() {

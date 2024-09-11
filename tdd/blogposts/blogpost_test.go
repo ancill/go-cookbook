@@ -5,7 +5,7 @@ import (
 	"testing"
 	"testing/fstest"
 
-	blogposts "github.com/ancill/go-cookbook/files"
+	blogposts "github.com/ancill/go-cookbook/blogposts"
 )
 
 func TestNewBlogPosts(t *testing.T) {
