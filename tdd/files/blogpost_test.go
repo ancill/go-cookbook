@@ -3,6 +3,8 @@ package blogposts_test
 import (
 	"testing"
 	"testing/fstest"
+
+	blogposts "github.com/ancill/go-cookbook/files"
 )
 
 func TestNewBlogPosts(t *testing.T) {
@@ -11,7 +13,11 @@ func TestNewBlogPosts(t *testing.T) {
 		"hello-world2.md": {Data: []byte("hola")},
 	}
 
-	posts := blogposts.NewPostsFromFS(fs)
+	posts, err := blogposts.NewPostsFromFS(fs)
+
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if len(posts) != len(fs) {
 		t.Errorf("got %d posts, wanted %d posts", len(posts), len(fs))
