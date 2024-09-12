@@ -15,7 +15,7 @@ var (
 
 // templ, err := template.New("blog").Parse(postTemplate)
 func Render(w io.Writer, p blogposts.Post) error {
-	templ, err := template.ParseFS(postTemplates, "templates/*.html")
+	templ, err := template.ParseFS(postTemplates, "templates/*.gohtml")
 	if err != nil {
 		return err
 	}
