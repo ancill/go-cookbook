@@ -1,8 +1,13 @@
 {{template "top" .}}
-<h1>{{.Title}}</h1>
 
+{{range .Posts}}
+<h1>{{.Title}}</h1>
 <p>{{.Description}}</p>
 
-
 Tags: <ul>{{range .Tags}}<li>{{.}}</li>{{end}}</ul>
+
+<article>{{.Body}}</article>
+{{end}}
+
+
 {{template "bottom" .}}

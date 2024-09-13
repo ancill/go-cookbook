@@ -2,9 +2,10 @@ package blogrenderer
 
 import (
 	"embed"
-	blogposts "github.com/ancill/go-cookbook/blogrenderer/blogpost"
+	"github.com/ancill/go-cookbook/blogposts"
 	"html/template"
 	"io"
+	"io/fs"
 )
 
 var (
@@ -25,8 +26,14 @@ func NewPostRenderer() (*PostRenderer, error) {
 	return &PostRenderer{templ: templ}, nil
 }
 
-func (r *PostRenderer) Render(w io.Writer, p blogposts.Post) error {
-	if err := r.templ.ExecuteTemplate(w, "blog.html", p); err != nil {
+func (r *PostRenderer) Render(w io.Writer, fs fs.FS) error {
+	p, err := blogposts.NewPostsFromFS(fs)
+	if err != nil {
+		return err
+	}
+	if err := r.templ.ExecuteTemplate(w, "blog.html", struct {
+		Posts []blogposts.Post
+	}{p}); err != nil {
 		return err
 	}
 
