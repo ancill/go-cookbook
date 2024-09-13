@@ -5,6 +5,7 @@ import (
 	blogposts "github.com/ancill/go-cookbook/blogrenderer/blogpost"
 	approvals "github.com/approvals/go-approval-tests"
 	"io"
+	"log"
 	"testing"
 
 	"github.com/ancill/go-cookbook/blogrenderer"
@@ -54,6 +55,9 @@ func BenchmarkRender(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		postRenderer.Render(io.Discard, aPost)
+		err := postRenderer.Render(io.Discard, aPost)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
