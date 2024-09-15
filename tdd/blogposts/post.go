@@ -14,6 +14,10 @@ type Post struct {
 	Tags        []string
 	Body        string
 }
+type PostViewModel struct {
+	Title, SanitisedTitle, Description, Body string
+	Tags                                     []string
+}
 
 const (
 	titleSeparator       = "Title: "
@@ -44,4 +48,8 @@ func readBody(scanner *bufio.Scanner) string {
 		fmt.Fprintln(&buf, scanner.Text())
 	}
 	return strings.TrimSuffix(buf.String(), "\n")
+}
+
+func (p Post) SanitisedTitle() string {
+	return strings.ToLower(strings.Replace(p.Title, " ", "-", -1))
 }
