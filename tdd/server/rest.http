@@ -1,0 +1,8 @@
+POST http://localhost:5000/players/Vik
+
+
+###
+GET http://localhost:5000/players/Mike
+
+###
+GET http://localhost:5000/league
