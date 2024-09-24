@@ -1,4 +1,3 @@
-// testing.go
 package poker
 
 import (
